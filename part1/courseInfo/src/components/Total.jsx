@@ -4,6 +4,6 @@ export const Total = (props) => {
     total += props.toSum[i]
   }
   return (
-    <p>{total}</p>
+    <p>Total number of exercises: {total}</p>
   )
 }
