@@ -1,17 +1,23 @@
 export const Statisics = (props) => {
-  console.log('responses:', props.responses)
-  console.log('text:', props.text)
-    let output
-    if(props.responses.length < 1) {
-      output = 0
-    } else if (props.text == 'Total') {
-      output = props.responses.length
-    } else if (props.text == 'Average') {
-      output = props.responses.reduce((x, y) => x + y, 0 ) / props.responses.length
-    } else if (props.text == 'Positive') {
-      output = props.responses.filter(x => x == 1).length / props.responses.length * 100
-    }
+    const good = props.responses.filter(x => x == 1)
+    const neutral = props.responses.filter(x => x == 0)
+    const bad = props.responses.filter(x => x == -1)
+    const total = props.responses.length
+    const average = props.responses.reduce((x, y) => x + y, 0 ) / props.responses.length
+    const positive = props.responses.filter(x => x == 1).length / props.responses.length * 100
+    
+    if (props.responses.length < 1) {
+      return <p>No feedback given</p>
+    } else {
     return (
-      <p>{props.text}: {output}</p>
+      <div>
+        <p>Good: {good == [] ? 0 : good.length}</p>
+        <p>Neutral: {neutral == [] ? 0 : neutral.length}</p>
+        <p>Bad: {bad == [] ? 0 : bad.length}</p>
+        <p>Total: {total}</p>
+        <p>Average: {average}</p>
+        <p>Positive: {positive}</p>
+      </div>
     )
   }
+}

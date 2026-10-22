@@ -37,12 +37,7 @@ const App = () => {
       <Button name='Neutral' onClick={HandleNeutralClick}/>
       <Button name='Bad' onClick={HandleNegativeClick}/>
       <Heading text='Statistics'/>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <Statisics text='Total' responses={responses}/>
-      <Statisics text='Average' responses={responses}/>
-      <Statisics text='Positive' responses={responses}/>
+      <Statisics responses={responses}/>
     </div>
   )
 }
