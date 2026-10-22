@@ -13,12 +13,17 @@ export const Statisics = (props) => {
     } else {
     return (
       <div>
-        <StatisicLine text="Good" value={good == [] ? 0 : good}/>
-        <StatisicLine text="Neutral" value={neutral == [] ? 0 : neutral}/>
-        <StatisicLine text="Bad" value={bad == [] ? 0 : bad}/>
-        <StatisicLine text="Total" value={total}/>
-        <StatisicLine text="Average" value={average}/>
-        <StatisicLine text="Positive" value={positive}/>
+        <table>
+          <thead>
+            <StatisicLine text="Good" value={good == [] ? 0 : good}/>
+            <StatisicLine text="Neutral" value={neutral == [] ? 0 : neutral}/>
+            <StatisicLine text="Bad" value={bad == [] ? 0 : bad}/>
+            <StatisicLine text="Total" value={total}/>
+            <StatisicLine text="Average" value={average}/>
+            <StatisicLine text="Positive" value={positive}/>
+          </thead>
+        </table>
+        
       </div>
     )
   }
