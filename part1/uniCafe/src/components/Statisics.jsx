@@ -28,22 +28,3 @@ export const Statisics = (props) => {
     )
   }
 }
-// export const Statisics = (props) => {
-//     let output
-//     if(props.responses.length < 1) {
-//       output = 0
-//     } else if (props.text == 'Total') {
-//       output = props.responses.length
-//     } else if (props.text == 'Average') {
-//       output = props.responses.reduce((x, y) => x + y, 0 ) / props.responses.length
-//     } else if (props.text == 'Positive') {
-//       output = props.responses.filter(x => x == 1).length / props.responses.length * 100
-//     }
-//     if (output == 0) {
-//       return <p>No feedback given</p>
-//     } else {
-//     return (
-//       <p>{props.text}: {output}</p>
-//     )
-//   }
-// }
