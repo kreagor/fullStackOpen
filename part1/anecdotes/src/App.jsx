@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button } from '../../anecdotes/src/components/Button'
+import { Anecdote } from './components/Anecdote'
 
 const App = () => {
   const anecdotes = [
@@ -13,10 +14,8 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
 
-  const votesArray = new Uint8Array(anecdotes.length);
-
   const [selected, setSelected] = useState(0)
-  const [votes, setVotes] = useState(votesArray)
+  const [votes, setVotes] = useState(new Uint8Array(anecdotes.length))
 
   const chooseAnecdote = () => {
     setSelected(Math.floor(Math.random() * anecdotes.length));
@@ -28,12 +27,18 @@ const App = () => {
     setVotes(newVotes)
   }
 
+  const findHighestIndex = () => {
+    const sortedVotes = [...votes].sort((a, b) => a - b)
+    return votes.indexOf(sortedVotes[votes.length -1])
+  }
+
   return (
     <div>
-      <p>{anecdotes[selected]}</p>
-      <p>has {votes[selected]} votes</p>
+      <Anecdote text="Anecdote of the Day" anecdote={anecdotes[selected]} votes={votes[selected]}/>
       <Button onClick={chooseAnecdote} text="Next Anecdote"/>
       <Button onClick={castVote} text="Vote"/>
+      <Anecdote text="Anecdote with most votes" anecdote={anecdotes[findHighestIndex()]} votes={votes[findHighestIndex()]}/>
+      <p></p>
     </div>
   )
 }
