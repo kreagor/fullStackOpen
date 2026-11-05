@@ -1,8 +1,6 @@
 export const Total = (props) => {
-  let total = 0
-  for (let i = 0; i < props.toSum.parts.length; i++) {
-    total += props.toSum.parts[i].exercises
-  }
+  const parts = props.course.parts.map((part => part.exercises ))
+  const total = parts.reduce((x, y) => x + y, 0)
   return (
     <p>Total number of exercises: {total}</p>
   )

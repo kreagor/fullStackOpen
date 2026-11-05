@@ -1,11 +1,14 @@
 import { Header } from "./Header"
 import { Content } from "./Content"
+import { Total } from "./Total"
 
 export const Course = (props) => {
+  const { course } = props
   return (
     <div>
-      <Header heading={props.course}/>
-      <Content content={props.course} length={props.course.parts.length}/>
+      <Header title={course}/>
+      <Content content={course}/>
+      <Total course={course}/>
     </div>
   )
 }

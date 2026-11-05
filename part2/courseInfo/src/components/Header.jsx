@@ -1,5 +1,6 @@
 export const Header = (props) => {
+  const { title } = props
   return (
-    <h1>{props.heading.name}</h1>
+    <h1>{title.name}</h1>
   )
 }
